@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MyStepDefs {
-
+    //Objects
     HomePage homePage = new HomePage();
     RegistrationPage registrationPage = new RegistrationPage();
     VerifyRegisterSuccess verifyRegisterSuccess = new VerifyRegisterSuccess();
