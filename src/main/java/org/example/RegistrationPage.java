@@ -28,11 +28,12 @@ public class RegistrationPage extends Utils {
     public void enterAllRegistrationDetails(){
 
         //Select Male Radio button----------------------------------------------------------------Radio button
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(300);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
         driver.findElement(_radioMaleRegister).click();
 
         //Enter First name
@@ -52,6 +53,7 @@ public class RegistrationPage extends Utils {
         Select selectYear = new Select(driver.findElement(_birthYear));
         selectYear.selectByVisibleText(loadProp.getProperty("dobYear"));
 
+
         //Enter Email and Printout Time
         driverSendKeys(_emailAddress, loadProp.getProperty("emailPArt1")+ rendomdate() + loadProp.getProperty("emailPart2"));
         System.out.println(rendomdate());
@@ -62,6 +64,9 @@ public class RegistrationPage extends Utils {
         //Enter Confirmed Password
         driverSendKeys(_confPassword, loadProp.getProperty("confirmPassword"));
 
+    }
+
+    public void clickOnRegisterBtn(){
         //Click on Register button
         driverWaitsUntilClick(_clickOnRegister,5);
     }

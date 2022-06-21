@@ -12,12 +12,12 @@ public class Hooks extends Utils {
     //Before and After methods from cucumber package
     DriverManager driverManager = new DriverManager();
 
-    @Before
+    @Before //come from cucumber
     public void setUp(){
         driverManager.openBrowser();
     }
 
-    @After
+    @After //come from cucumber
     public void tearDown(Scenario scenario){
 
         if (scenario.isFailed()) {
@@ -28,7 +28,7 @@ public class Hooks extends Utils {
             //it will replace space with _
             String screenshotName = scenario.getName().replaceAll(" ", "_");
 
-            //it will stick Screenshot with report
+            //it will stick Screenshot with report if scenario fails
             scenario.attach(screenshot, "image/png", screenshotName); //stick it in the report
         }
 
