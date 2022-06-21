@@ -8,16 +8,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import java.util.regex.Pattern;
 
 public class Utils extends BasePage{
@@ -33,6 +30,7 @@ public class Utils extends BasePage{
         File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
 
         //Copy file at Destination folder
+        //FileUtils --> requires Common.io dependency in pom file
         try {
             FileUtils.copyFile(srcFile, new File("Screenshots\\"+filename+rendomdate()+".png"));
         } catch (IOException e) {
@@ -57,6 +55,9 @@ public class Utils extends BasePage{
     public static void selectByVisibleText(By by,String text){
         Select selectYear = new Select(driver.findElement(by));
         selectYear.selectByVisibleText(text);
+    }
+    public static void dd(By by){
+        Select select = new Select(driver.findElement(by));
     }
 
     //Click on Element
